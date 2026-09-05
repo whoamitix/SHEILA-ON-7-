@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8efc9">
+<meta name="description" content="Buzz Youth Fest — Palembang, 16 Januari 2027 di Stadion Gelora Sriwijaya. Sheila On 7, Kahitna, MALIQ & D'Essentials, Vierratale.">
+<meta property="og:title" content="Buzz Youth Fest — Palembang">
+<meta property="og:description" content="SABTU, 16 JANUARI 2027 — Stadion Gelora Sriwijaya, Palembang.">
+<meta property="og:type" content="website">
+<title>Buzz Youth Fest — Palembang</title>
+<link rel="preload" as="image" href="logo-buzz.png" fetchpriority="high">
+<link rel="prefetch" href="antrian.html">
+<script type="speculationrules">
+{"prerender":[{"source":"document","where":{"href_matches":"antrian.html"},"eagerness":"moderate"}]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#111;font-family:Arial,Helvetica,sans-serif;color:#651513;overflow-x:hidden}
+.page{width:100%;max-width:1200px;min-height:100vh;margin:auto;overflow:clip;position:relative;background:#f8efc9;isolation:isolate;transition:filter .55s cubic-bezier(.4,0,.2,1)}
+@supports not (overflow: clip){.page{overflow:hidden}}
+.page-blur{filter:blur(3px)}
+.page:before{content:"";position:absolute;z-index:0;width:72vw;height:72vw;max-width:860px;max-height:1050px;left:-31vw;top:-125px;background:#a80b07;border-radius:0 0 410px 0;transform:rotate(-1deg)}
+.page:after{content:"";position:absolute;z-index:0;width:35vw;height:760px;right:-23vw;top:-30px;background:#fff3c9;border-radius:0 0 0 260px;transform:rotate(-3deg)}
+.texture{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.13;background-image:radial-gradient(rgba(110,20,10,.7) 1px,transparent 1px),radial-gradient(rgba(255,255,255,.8) 1px,transparent 1px);background-size:7px 7px,13px 13px;background-position:0 0,5px 4px;mix-blend-mode:multiply}
+.top-ring{position:absolute;z-index:2;right:-47px;top:-47px;width:122px;height:122px;border:16px solid #0879ad;border-left-color:#12b65d;border-radius:50%;transform:rotate(-24deg)}
+.top-ring:after{content:"";position:absolute;right:-8px;bottom:-8px;width:63px;height:63px;border-radius:50%;background:#f8efc9}
+.nav-wrap{position:sticky;top:0;z-index:50;padding:14px 24px 0;transition:background-color .25s ease,box-shadow .25s ease}
+.nav-wrap.scrolled{background:rgba(248,239,201,.96);box-shadow:0 6px 18px rgba(94,26,19,.1)}
+.nav{height:64px;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:5px;border:1px solid rgba(255,255,255,.55);border-radius:40px;background:transparent}
+.nav a{height:54px;display:flex;align-items:center;justify-content:center;border-radius:34px;color:#641513;font-size:16px;font-weight:700;transition:color .2s,background .2s,box-shadow .2s;text-decoration:none}
+.nav a.active,.nav a:hover{color:#fff;background:#a80b0b;box-shadow:0 3px 8px rgba(80,0,0,.16)}
+.content{position:relative;z-index:3}
+#home,#artists,#layout,#tickets{scroll-margin-top:84px}
+.hero{min-height:560px;padding:48px 32px 0;display:flex;flex-direction:column;align-items:center}
+.logo-buzz{position:relative;z-index:5;display:block;width:min(100%,720px);height:auto;margin:auto;object-fit:contain;filter:drop-shadow(0 8px 8px rgba(65,12,7,.14))}
+.info-card{position:relative;z-index:6;margin:-10px auto 0;max-width:780px;padding:30px 32px 28px;border-radius:30px;background:linear-gradient(100deg,#e8ae90,#f3c6a7 50%,#fff0ca);border:2px solid rgba(255,255,255,.52);box-shadow:0 8px 20px rgba(94,26,19,.2),inset 0 1px 2px rgba(255,255,255,.8);text-align:center}
+.date{color:#9e0907;font-size:20px;line-height:1.15;font-weight:900;margin-bottom:26px}
+.location{display:flex;align-items:center;justify-content:center;gap:20px;padding:22px 15px;border-radius:27px;background:#fff2d8;box-shadow:inset 0 1px 2px rgba(255,255,255,.8)}
+.city{color:#641713;font-size:22px;font-weight:900}
+.venue{text-align:left;color:#632018;font-size:15px;line-height:1.25}
+.artists{position:relative;min-height:620px;padding:100px 40px 70px;text-align:center}
+.artists:before{content:"";position:absolute;z-index:-1;width:900px;height:700px;left:-420px;top:55px;background:#fff4cc;border-radius:50%;transform:rotate(13deg)}
+.section-title{width:max-content;min-width:245px;margin:0 auto 50px;padding:20px 35px;border-radius:55px;border:1px solid rgba(255,255,255,.7);background:linear-gradient(90deg,#fff1cc,#f1c4a9,#fff0c9);box-shadow:0 5px 14px rgba(86,25,16,.12),inset 0 1px 2px #fff;color:#641513;font-size:30px;line-height:1;font-weight:900}
+.logo-sheila{display:block;width:min(88%,500px);max-height:260px;object-fit:contain;margin:0 auto 52px}
+.artist-logos{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:18px;max-width:760px;margin:0 auto}
+.artist-name,.support{text-shadow:-2px -2px 0 #111,2px -2px 0 #111,-2px 2px 0 #111,2px 2px 0 #111}
+.artist-name{color:#fff;font-family:"Arial Black",Arial,sans-serif;font-size:24px;font-weight:900;line-height:.9}
+.artist-name.maliq{font-size:17px}
+.artist-name.vierra{font-family:cursive;font-size:24px;font-style:italic}
+.support{margin-top:28px;color:#fff;font-size:20px;font-weight:900}
+.burst{position:absolute;left:-8px;top:315px;width:100px;height:100px;background:#008de6;clip-path:polygon(50% 0,58% 15%,72% 4%,76% 20%,94% 18%,88% 35%,100% 46%,82% 53%,91% 70%,72% 70%,70% 91%,54% 80%,42% 100%,33% 80%,14% 88%,20% 69%,2% 64%,15% 49%,0 36%,20% 32%,12% 14%,32% 20%)}
+.rings{position:absolute;right:-35px;top:430px;width:145px;height:145px;transform:rotate(30deg)}
+.rings:before{content:"";position:absolute;width:108px;height:108px;border:11px solid #1747c0;border-radius:50%}
+.rings:after{content:"";position:absolute;right:12px;top:27px;width:72px;height:72px;border:11px solid #0bb65c;border-radius:50%}
+.layout{position:relative;min-height:650px;padding:80px 40px 70px;text-align:center}
+.layout .section-title{margin-bottom:66px}
+.layout-image{display:block;width:min(100%,900px);height:auto;object-fit:contain;margin:0 auto;filter:drop-shadow(0 8px 8px rgba(64,15,8,.14))}
+.presale{position:relative;min-height:650px;padding:55px 40px 70px}
+.presale-card{position:relative;padding:40px 34px 30px;border-radius:36px;background:#fff;box-shadow:0 9px 24px rgba(74,20,10,.12);overflow:hidden}
+.presale-card:before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#ff0060,#c000f0,#12c2e8,#00d247,#ff8600)}
+.presale-title{text-align:center;color:#6d0d0b;font-size:40px;font-weight:400;letter-spacing:-1px;margin-bottom:34px}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.price-item{display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 12px 18px;border-radius:20px;background:linear-gradient(180deg,#fff,#fff8ec);border:1px solid rgba(170,40,30,.08);box-shadow:0 3px 10px rgba(74,20,10,.05);text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s}
+.price-item:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(74,20,10,.16);border-color:rgba(170,40,30,.2)}
+.price-item.center{grid-column:1/-1;width:62%;margin:0 auto;background:linear-gradient(180deg,#fffce8,#fff3c9);border-color:rgba(255,134,0,.4);box-shadow:0 6px 16px rgba(255,134,0,.18)}
+.price-item.center:hover{border-color:rgba(255,134,0,.7);box-shadow:0 14px 28px rgba(255,134,0,.28)}
+.swatch{width:62px;height:62px;border-radius:16px;box-shadow:0 6px 14px rgba(0,0,0,.18),inset 0 -4px 6px rgba(0,0,0,.22),inset 0 3px 4px rgba(255,255,255,.45)}
+.swatch.cat1{background:#ff0060}
+.swatch.cat3{background:#c000f0}
+.swatch.cat2{background:#12c2e8}
+.swatch.festival{background:#00d247}
+.swatch.premium{background:#ff8600}
+.price-copy{display:flex;flex-direction:column;align-items:center;gap:4px}
+.price-copy strong{color:#111;font-size:14px;line-height:1.15;font-weight:800;letter-spacing:.6px}
+.price-copy b{color:#a80b07;font-size:22px;line-height:1;font-weight:900;margin-top:2px}
+.price-copy span{color:#666;font-size:12px;line-height:1.15;font-weight:600;letter-spacing:.3px;margin-top:4px}
+.price-note{margin-top:28px;padding-top:18px;border-top:1px dashed rgba(170,40,30,.22);color:#252525;text-align:center;font-size:13px;line-height:1.4}
+.tickets{position:relative;min-height:500px;padding:65px 40px 80px;text-align:center}
+.tickets .section-title{margin-bottom:55px}
+.ticket-card{padding:27px 14px 22px;border-radius:32px;background:linear-gradient(90deg,#f3aeb7,#ffd9b9,#f2a7a9);box-shadow:0 9px 26px #7b1b2d22}
+.ticket-label{font-size:18px;margin-bottom:25px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:29px 9px 18px;border-radius:28px;background:#fff5d6}
+.number{color:#4b1110;font-size:31px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.unit{margin-top:8px;font-size:12px;font-weight:700}
+.ticket-note{margin-top:16px;font-size:13px;color:#704d46;font-weight:700;letter-spacing:.5px}
+.sale-badge{display:inline-block;margin-bottom:14px;padding:6px 18px;border-radius:30px;background:#0bb65c;color:#fff;font-size:12px;font-weight:900;letter-spacing:1.5px;box-shadow:0 4px 12px rgba(11,182,92,.45);animation:badgePulse 1.8s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{transform:scale(1);box-shadow:0 4px 12px rgba(11,182,92,.45)}50%{transform:scale(1.06);box-shadow:0 6px 18px rgba(11,182,92,.7)}}
+.btn-buy{position:relative;display:block;margin:28px auto 0;padding:18px 52px;width:max-content;max-width:90%;border:none;border-radius:50px;cursor:pointer;background:linear-gradient(135deg,#eaf7ff,#b8e1ff 30%,#57b8f9 66%,#0e97e6);color:#0a3a5f;font-family:inherit;font-size:22px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;box-shadow:0 10px 28px rgba(20,150,225,.45),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -3px 4px rgba(9,90,150,.32);transition:transform .25s,box-shadow .25s;overflow:hidden;isolation:isolate}
+.btn-buy:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 38px rgba(20,150,225,.68),inset 0 2px 2px #fff,inset 0 -3px 4px rgba(9,90,150,.4)}
+.btn-buy:active{transform:translateY(-1px) scale(.99)}
+.btn-buy:before{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-25deg);animation:shine 2.6s ease-in-out infinite}
+@keyframes shine{0%{left:-130%}55%,100%{left:140%}}
+.btn-buy:after{content:"";position:absolute;inset:-4px;border-radius:54px;z-index:-1;background:linear-gradient(135deg,#b8e1ff,#1a9be8,#b8e1ff);filter:blur(10px);opacity:.55;animation:glowPulse 2.2s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.45}50%{opacity:.85}}
+.btn-buy span{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px}
+.btn-buy span:before{content:"▶";font-size:14px}
+.footer-art{position:relative;height:330px;overflow:hidden;background:#f8efc9}
+.pink-shape{position:absolute;left:-75px;bottom:-145px;width:410px;height:410px;background:#d70b63;border-radius:48% 52% 0 0;transform:rotate(-8deg)}
+.cream-cut{position:absolute;right:-130px;bottom:-70px;width:285px;height:390px;border-radius:50%;background:#f8efc9}
+.social{position:absolute;z-index:5;left:0;right:0;top:105px;display:flex;justify-content:center;gap:9px}
+.social a{width:39px;height:39px;display:flex;align-items:center;justify-content:center;border:2px solid #65221f;border-radius:50%;background:#f5d6b9;color:#54201d;font-size:19px;font-weight:900;text-decoration:none}
+.copyright{position:absolute;z-index:5;left:42px;right:42px;top:170px;padding:14px 10px;border-radius:24px;background:#efcdb7;color:#643a36;font-size:12px;text-align:center;box-shadow:0 3px 8px #6a1d1822}
+.bridge{position:absolute;left:0;right:0;bottom:-5px;height:105px;opacity:.92;background:repeating-linear-gradient(90deg,#9d0030 0 10px,transparent 10px 55px);clip-path:polygon(0 58%,100% 34%,100% 100%,0 100%)}
+.page-fade{position:fixed;inset:0;z-index:9999;background:#f8efc9;opacity:0;pointer-events:none;transition:opacity .55s cubic-bezier(.4,0,.2,1)}
+.page-fade.show{opacity:1;pointer-events:auto}
+.nav a:focus-visible,.social a:focus-visible{outline:3px solid #a80b0b;outline-offset:3px}
+.btn-buy:focus-visible{outline:3px solid #0b7fc4;outline-offset:3px}
+@media(max-width:760px){
+.page{max-width:100%}
+.nav-wrap{padding:10px 12px 0}
+.nav{height:58px}
+.nav a{height:48px;font-size:14px}
+.hero{min-height:455px;padding:34px 18px 0}
+.logo-buzz{width:min(100%,520px)}
+.info-card{margin:-4px 16px 0;padding:24px 16px 22px;border-radius:24px}
+.date{font-size:16px;margin-bottom:18px}
+.location{gap:12px;padding:17px 12px;border-radius:20px}
+.city{font-size:18px}
+.venue{font-size:12px}
+.artists{min-height:560px;padding:75px 18px 55px}
+.artists:before{width:680px;height:560px;left:-300px;top:35px}
+.section-title{min-width:190px;padding:15px 25px;font-size:24px;margin-bottom:38px}
+.logo-sheila{width:min(90%,390px);margin-bottom:34px}
+.artist-logos{grid-template-columns:1fr;gap:18px;max-width:360px}
+.artist-name{font-size:21px}
+.artist-name.maliq{font-size:16px}
+.artist-name.vierra{font-size:22px}
+.support{font-size:16px;margin-top:22px}
+.burst{top:240px;width:72px;height:72px}
+.rings{right:-40px;top:380px;transform:scale(.8) rotate(30deg)}
+.layout{min-height:auto;padding:60px 18px 55px}
+.layout .section-title{margin-bottom:35px}
+.presale{min-height:auto;padding:30px 16px 55px}
+.presale-card{padding:30px 16px 24px;border-radius:28px}
+.presale-title{font-size:34px;margin-bottom:25px}
+.price-grid{gap:10px}
+.price-item{padding:16px 8px;border-radius:16px}
+.swatch{width:48px;height:48px;border-radius:12px}
+.price-copy b{font-size:18px}
+.price-copy strong{font-size:12px}
+.price-copy span{font-size:10px}
+.price-item.center{width:100%}
+.price-note{font-size:11px}
+.tickets{min-height:auto;padding:45px 16px 60px}
+.tickets .section-title{margin-bottom:35px}
+.ticket-card{padding:24px 12px 20px;border-radius:26px}
+.countdown{padding:23px 6px 15px;border-radius:22px}
+.number{font-size:24px}
+.unit{font-size:10px}
+.btn-buy{width:100%;max-width:340px;padding:16px 20px;font-size:17px}
+.footer-art{height:250px}
+.social{top:72px}
+.copyright{top:128px;left:20px;right:20px;font-size:10px}
+}
+@media(min-width:761px){
+.page{box-shadow:0 0 50px rgba(0,0,0,.35)}
+.artist-logos{padding-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="texture" aria-hidden="true"></div>
+<div class="top-ring" aria-hidden="true"></div>
+<div class="content">
+<div class="nav-wrap">
+<nav class="nav" aria-label="Navigasi utama">
+<a href="#home" data-section="home" class="active">Home</a>
+<a href="#artists" data-section="artists">Artists</a>
+<a href="#layout" data-section="layout">Layout</a>
+<a href="#tickets" data-section="tickets">Tickets</a>
+</nav>
+</div>
+<section class="hero" id="home">
+<img class="logo-buzz" src="logo-buzz.png" alt="Buzz Youth Fest" decoding="async" fetchpriority="high">
+<div class="info-card" role="group" aria-label="Informasi acara">
+<div class="date">SABTU, 16 JANUARI 2027</div>
+<div class="location">
+<div class="city">PALEMBANG</div>
+<div class="venue">STADION<br>GELORA SRIWIJAYA</div>
+</div>
+</div>
+</section>
+<section class="artists" id="artists">
+<div class="burst" aria-hidden="true"></div>
+<div class="rings" aria-hidden="true"></div>
+<h2 class="section-title">ARTISTS</h2>
+<img class="logo-sheila" src="logo-sheila.png" alt="Sheila On 7" loading="lazy" decoding="async">
+<div class="artist-logos">
+<div class="artist-name">kahitna</div>
+<div class="artist-name maliq">MALIQ &amp;<br>D'ESSENTIALS</div>
+<div class="artist-name vierra">Vierratale</div>
+</div>
+<div class="support">Penunggu panggung</div>
+</section>
+<section class="layout" id="layout">
+<h2 class="section-title">LAYOUT</h2>
+<img class="layout-image" src="layout.jpg" alt="Layout area dan kategori tiket Buzz Youth Fest" loading="lazy" decoding="async">
+</section>
+<section class="presale" aria-label="Harga presale">
+<div class="presale-card">
+<h2 class="presale-title">PRESALE</h2>
+<div class="price-grid">
+<div class="price-item">
+<div class="swatch cat1"></div>
+<div class="price-copy">
+<strong>CAT 1</strong>
+<b>Rp525.000</b>
+<span>Numbered Seat</span>
+</div>
+</div>
+<div class="price-item">
+<div class="swatch cat3"></div>
+<div class="price-copy">
+<strong>CAT 3A &amp; 3B</strong>
+<b>Rp325.000</b>
+<span>Free Seating</span>
+</div>
+</div>
+<div class="price-item center">
+<div class="swatch cat2"></div>
+<div class="price-copy">
+<strong>CAT 2A &amp; 2B</strong>
+<b>Rp425.000</b>
+<span>Free Seating</span>
+</div>
+</div>
+<div class="price-item">
+<div class="swatch festival"></div>
+<div class="price-copy">
+<strong>FESTIVAL</strong>
+<b>Rp300.000</b>
+<span>Standing</span>
+</div>
+</div>
+<div class="price-item">
+<div class="swatch premium"></div>
+<div class="price-copy">
+<strong>PREMIUM</strong>
+<b>Rp475.000</b>
+<span>Standing</span>
+</div>
+</div>
+</div>
+<div class="price-note">*Harga tiket belum termasuk pajak dan biaya admin</div>
+</div>
+</section>
+<section class="tickets" id="tickets">
+<h2 class="section-title">TICKETS</h2>
+<div class="ticket-card">
+<div class="sale-badge">● OPEN SALE NOW</div>
+<div class="ticket-label">Menuju hari festival:</div>
+<div class="countdown" role="timer" aria-label="Waktu menuju hari festival">
+<div><div class="number" id="days">00</div><div class="unit">Hari</div></div>
+<div><div class="number" id="hours">00</div><div class="unit">Jam</div></div>
+<div><div class="number" id="minutes">00</div><div class="unit">Menit</div></div>
+<div><div class="number" id="seconds">00</div><div class="unit">Detik</div></div>
+</div>
+<div class="ticket-note">OPEN SALE — Amankan tiketmu sekarang!</div>
+<a href="antrian.html" class="btn-buy" id="buyBtn"><span>Beli Tiket Sekarang</span></a>
+</div>
+</section>
+<section class="footer-art">
+<div class="pink-shape" aria-hidden="true"></div>
+<div class="cream-cut" aria-hidden="true"></div>
+<div class="social" role="group" aria-label="Social media">
+<a href="#" aria-label="Facebook">f</a>
+<a href="#" aria-label="Instagram">◎</a>
+<a href="#" aria-label="X">𝕏</a>
+<a href="#" aria-label="TikTok">♪</a>
+<a href="#" aria-label="Spotify">◉</a>
+<a href="#" aria-label="YouTube">▶</a>
+</div>
+<div class="copyright">© 2026 Hectic Creative. All rights reserved.</div>
+<div class="bridge" aria-hidden="true"></div>
+</section>
+</div>
+</main>
+<div class="page-fade" id="pageFade" aria-hidden="true"></div>
+<script>
+(()=>{"use strict";
+const TARGET=new Date("2027-01-16T00:00:00+07:00").getTime(),pad=n=>String(n).padStart(2,"0"),$=id=>document.getElementById(id),tEls={d:$("days"),h:$("hours"),m:$("minutes"),s:$("seconds")};
+function renderTimer(){const t=Math.max(0,(TARGET-Date.now())/1000|0);tEls.d.textContent=pad(t/86400|0);tEls.h.textContent=pad(t%86400/3600|0);tEls.m.textContent=pad(t%3600/60|0);tEls.s.textContent=pad(t%60);return t<=0}
+(function loop(){if(!renderTimer())setTimeout(loop,1000-Date.now()%1000)})();
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)renderTimer()});
+const navWrap=document.querySelector(".nav-wrap");
+if(navWrap){const onScroll=()=>navWrap.classList.toggle("scrolled",window.scrollY>8);addEventListener("scroll",onScroll,{passive:true});onScroll()}
+const links=[...document.querySelectorAll(".nav a")];
+if("IntersectionObserver" in window){const setActive=id=>{for(const l of links)l.classList.toggle("active",l.dataset.section===id)};const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting)setActive(e.target.id)},{rootMargin:"-25% 0px -60% 0px",threshold:0});for(const s of document.querySelectorAll("#home,#artists,#layout,#tickets"))io.observe(s)}
+const buyBtn=$("buyBtn"),pageFade=$("pageFade"),pageEl=document.querySelector(".page"),reduceMotion=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):null;
+let navigating=false;
+if(buyBtn&&pageFade&&pageEl){
+buyBtn.addEventListener("click",e=>{
+if(navigating){e.preventDefault();return}
+if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+e.preventDefault();
+navigating=true;
+pageEl.classList.add("page-blur");
+pageFade.classList.add("show");
+setTimeout(()=>window.location.assign(buyBtn.href),reduceMotion&&reduceMotion.matches?60:560)
+});
+window.addEventListener("pageshow",e=>{if(e.persisted){navigating=false;pageEl.classList.remove("page-blur");pageFade.classList.remove("show")}})
+}
+})();
+</script>
+</body>
+</html>
