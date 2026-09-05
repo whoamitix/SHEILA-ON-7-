@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0C2C91">
+<meta name="description" content="Pembelian tiket Buzz Youth Fest - Sabtu, 16 Januari 2027 di Stadion Gelora Sriwijaya, Palembang.">
+<meta property="og:title" content="Beli Tiket - Buzz Youth Fest | Palembang 2027">
+<meta property="og:description" content="Buzz Youth Fest. Sabtu, 16 Januari 2027 di Stadion Gelora Sriwijaya, Palembang.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preload" as="image" href="banner.png" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="prefetch" href="form.html">
+<title>Beli Tiket - Buzz Youth Fest | Palembang 2027</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#F7F8FC;color:#121318;padding-bottom:120px;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible{outline:3px solid #3160F4;outline-offset:3px}
+.container{width:100%;max-width:480px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(18,19,24,.05);position:relative}
+.app-header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-img{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.logo-text{font-size:20px;font-weight:900;letter-spacing:1px;background:linear-gradient(180deg,#FDF5A6 0%,#FCE28A 30%,#D4AF37 50%,#AA771C 60%,#FDF5A6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.lang{background:#F4F6FA;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;color:#4B5563}
+.progress{position:relative;padding:14px 28px 18px;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#0C2C91,#0A2475);overflow:hidden}
+.progress::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(253,245,166,.45),transparent)}
+.progress-inner{position:relative}
+.progress-track{position:absolute;top:14px;left:15px;right:15px;height:3px;background:rgba(255,255,255,.14);border-radius:999px;z-index:1}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#FDF5A6,#FCE28A 40%,#D4AF37 70%,#B8861A);border-radius:999px;box-shadow:0 0 10px rgba(212,175,55,.7);transition:width .7s cubic-bezier(.4,0,.2,1)}
+.progress-steps{position:relative;z-index:2;display:flex;justify-content:space-between;list-style:none}
+.step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+.step-dot{width:30px;height:30px;border-radius:50%;background:#0A2370;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:rgba(255,255,255,.55);transition:all .3s;position:relative}
+.step-num{display:block;line-height:1}
+.step-check{display:none;width:14px;height:14px;stroke:#5C4405;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.step.completed .step-dot{background:linear-gradient(180deg,#FDF5A6 0%,#FCE28A 30%,#D4AF37 50%,#AA771C 60%,#FDF5A6);border-color:#D4AF37;color:#5C4405;box-shadow:0 4px 14px rgba(212,175,55,.5),inset 0 1px 2px rgba(255,255,255,.45)}
+.step.completed .step-num{display:none}
+.step.completed .step-check{display:block}
+.step.active .step-dot{background:linear-gradient(180deg,#5B8AFF,#3160F4);border-color:#3160F4;color:#fff;box-shadow:0 0 0 4px rgba(49,96,244,.25),0 6px 20px rgba(49,96,244,.55);animation:stepPulse 2.2s ease-in-out infinite}
+.step.active .step-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(91,138,255,.5);animation:stepRing 2.2s ease-out infinite}
+@keyframes stepPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes stepRing{0%{transform:scale(.85);opacity:.85}100%{transform:scale(1.5);opacity:0}}
+.step-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;transition:color .3s}
+.step.active .step-label{color:#fff}
+.step.completed .step-label{color:rgba(253,245,166,.92)}
+.event-hero{position:relative;overflow:hidden;background:#fff}
+.event-hero-bg{position:relative;width:100%;height:240px;overflow:hidden}
+.event-hero-bg img{width:100%;height:100%;object-fit:cover}
+.event-hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,44,145,0) 40%,rgba(12,44,145,.4) 65%,rgba(0,0,0,.85));z-index:1;pointer-events:none}
+.event-hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:95px;background:linear-gradient(180deg,transparent,rgba(255,255,255,1) 78%);z-index:2;pointer-events:none}
+.hero-id-tag{position:absolute;top:14px;right:16px;z-index:5;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.4);padding:5px 10px;border-radius:8px}
+.hero-id-tag svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2}
+.hero-id-tag span{font-size:11px;font-weight:800;color:#fff;letter-spacing:.5px}
+.event-hero-info{position:absolute;bottom:58px;left:18px;right:18px;z-index:4}
+.event-hero-title{font-size:22px;font-weight:900;line-height:1.18;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);margin-bottom:10px;letter-spacing:-.3px}
+.event-hero-meta{display:flex;flex-wrap:wrap;gap:8px}
+.event-hero-date{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#fff;background:rgba(12,44,145,.6);padding:5px 10px;border-radius:8px}
+.event-hero-date svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.event-hero-loc{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#fff;background:rgba(0,0,0,.4);padding:5px 10px;border-radius:8px}
+.event-hero-loc svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.early-bird-badge{position:relative;margin:-30px 0 16px;padding:14px 18px;background:linear-gradient(135deg,#0C2C91,#1A3FA8);border-radius:16px;border:1px solid rgba(49,96,244,.3);overflow:hidden;box-shadow:0 10px 30px rgba(12,44,145,.25);z-index:6;display:flex;align-items:center;justify-content:space-between;gap:10px;opacity:0;animation:badgeSlideIn .55s .12s cubic-bezier(.4,0,.2,1) forwards}
+.early-bird-badge::before{content:'';position:absolute;top:0;left:-60%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);animation:shimmer 3s ease-in-out infinite}
+@keyframes badgeSlideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{left:-60%}50%,100%{left:100%}}
+.early-bird-left{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.early-bird-icon{width:24px;height:24px;stroke:#FDF5A6;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.early-bird-text-wrap{display:flex;flex-direction:column;line-height:1.2}
+.early-bird-text{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#FDF5A6}
+.early-bird-sub{font-size:9px;font-weight:500;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
+.early-bird-right{display:flex;align-items:center;gap:8px;position:relative;z-index:1;padding-left:10px;border-left:1px solid rgba(255,255,255,.2)}
+.early-bird-dot{width:7px;height:7px;border-radius:50%;background:#FDF5A6;box-shadow:0 0 8px rgba(253,245,166,.8);animation:dotPulse 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.early-bird-max{font-size:11px;font-weight:700;color:rgba(255,255,255,.8);white-space:nowrap}
+.early-bird-max strong{color:#FDF5A6;font-weight:900}
+.content{padding:0 20px 24px}
+.section-title{font-size:17px;font-weight:800;margin:28px 0 16px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:5px;height:20px;background:#0C2C91;border-radius:3px;flex-shrink:0}
+.section-note{font-size:12px;opacity:.55;font-weight:600;margin:-10px 0 16px}
+.ticket-card{position:relative;background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:16px 16px 14px;margin-bottom:16px;transition:border-color .25s,background .25s,box-shadow .25s,transform .2s;opacity:0;transform:translateY(12px);animation:cardEnter .45s ease forwards}
+.ticket-card[data-ticket="festival"]{animation-delay:.05s}
+.ticket-card[data-ticket="cat3"]{animation-delay:.12s}
+.ticket-card[data-ticket="cat2"]{animation-delay:.19s}
+.ticket-card[data-ticket="premium"]{animation-delay:.26s}
+.ticket-card[data-ticket="cat1"]{animation-delay:.33s}
+@keyframes cardEnter{to{opacity:1;transform:translateY(0)}}
+.ticket-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(18,19,24,.06)}
+.ticket-card.active{border-color:#3160F4;background:#F5F8FF;box-shadow:0 6px 18px rgba(49,96,244,.1)}
+.ticket-card.active:hover{box-shadow:0 8px 22px rgba(49,96,244,.14)}
+.ticket-card.vip-card.active{border-color:#D4AF37;background:#FFFDF5;box-shadow:0 6px 18px rgba(212,175,55,.15)}
+.ticket-card.vip-card.active:hover{box-shadow:0 8px 22px rgba(212,175,55,.2)}
+.ticket-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}
+.ticket-name{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+.ticket-tag{font-size:10px;font-weight:700;padding:4px 10px;border-radius:999px;background:#DCE7FF;color:#0C2C91;letter-spacing:.3px;white-space:nowrap}
+.ticket-tag.gold{background:linear-gradient(90deg,#FCE28A,#D4AF37);color:#5C4405}
+.ticket-perks{list-style:none;margin:10px 0 0}
+.ticket-perks li{font-size:12px;opacity:.65;display:flex;gap:8px;margin-bottom:5px;line-height:1.5}
+.ticket-perks li::before{content:'\2713';color:#3160F4;font-weight:800;flex-shrink:0}
+.ticket-card.vip-card .ticket-perks li::before{color:#D4AF37}
+.ticket-divider{position:relative;height:0;border-top:2px dashed #D9DEE7;margin:14px -16px}
+.ticket-card.active .ticket-divider{border-top-color:#A9C1FB}
+.ticket-card.vip-card.active .ticket-divider{border-top-color:#E3D096}
+.ticket-notch{position:absolute;top:-12px;width:22px;height:22px;background:#fff;border:1.5px solid #E5E7EB}
+.ticket-notch.left{left:-1.5px;border-left:none;border-radius:0 50% 50% 0}
+.ticket-notch.right{right:-1.5px;border-right:none;border-radius:50% 0 0 50%}
+.ticket-card.active .ticket-notch{border-color:#3160F4;background:#F5F8FF}
+.ticket-card.vip-card.active .ticket-notch{border-color:#D4AF37;background:#FFFDF5}
+.ticket-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:2px}
+.ticket-price{font-size:19px;font-weight:800}
+.ticket-price .per{font-size:11px;font-weight:600;opacity:.5}
+.qty-control{display:flex;align-items:center;border:1.5px solid #E5E7EB;border-radius:10px;overflow:hidden;flex-shrink:0;background:#fff;transition:border-color .25s}
+.ticket-card.active .qty-control{border-color:#3160F4}
+.ticket-card.vip-card.active .qty-control{border-color:#D4AF37}
+.qty-btn{width:38px;height:38px;border:none;background:#F7F8FC;font-size:18px;font-weight:700;cursor:pointer;color:#121318;transition:background .15s,color .15s,transform .12s;display:flex;align-items:center;justify-content:center;line-height:1}
+.qty-btn:hover:not(:disabled){background:#DCE7FF;color:#0C2C91}
+.qty-btn:active:not(:disabled){transform:scale(.88)}
+.qty-btn:disabled{opacity:.35;cursor:not-allowed}
+.qty-val{min-width:36px;text-align:center;font-weight:800;font-size:14px;transition:transform .15s}
+.qty-val.bump{animation:qtyBump .25s ease}
+@keyframes qtyBump{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
+.site-footer{margin-top:32px;padding:36px 20px 8px;border-top:1px solid #E5E7EB;text-align:center}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+.footer-logo{width:30px;height:30px;border-radius:8px;object-fit:cover}
+.footer-name{font-size:20px;font-weight:900;letter-spacing:1.5px;background:linear-gradient(180deg,#3160F4,#0C2C91);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.footer-contact{display:flex;flex-direction:column;align-items:center;gap:8px}
+.footer-contact-item{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;opacity:.75;text-decoration:none;transition:opacity .2s}
+.footer-contact-item:hover{opacity:1}
+.footer-contact-item svg{width:16px;height:16px;flex-shrink:0}
+.footer-sep{height:1px;background:#E5E7EB;margin:18px 0 14px}
+.footer-copy{font-size:11.5px;font-weight:500;opacity:.45}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 20px;background:rgba(255,255,255,.98);border-top:1px solid #E5E7EB;box-shadow:0 -6px 24px rgba(18,19,24,.06);z-index:998}
+.checkout-bar{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;padding:8px 8px 8px 18px;border-radius:14px;box-shadow:0 4px 14px rgba(18,19,24,.06);border:1px solid #E5E7EB}
+.total-info{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+.total-label{font-size:11px;opacity:.6;font-weight:600}
+.total-price{font-size:18px;font-weight:800;transition:transform .15s}
+.total-price.bump{animation:totalBump .3s ease}
+@keyframes totalBump{0%{transform:scale(1)}30%{transform:scale(1.06)}100%{transform:scale(1)}}
+.checkout-btn{border:none;background:#3160F4;color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;padding:14px 24px;border-radius:10px;cursor:pointer;box-shadow:0 6px 18px rgba(49,96,244,.35);transition:background .25s,transform .2s,box-shadow .25s;white-space:nowrap;flex-shrink:0}
+.checkout-btn:hover:not(:disabled){background:#2456E0;transform:translateY(-2px);box-shadow:0 8px 22px rgba(49,96,244,.45)}
+.checkout-btn:active:not(:disabled){transform:scale(.97)}
+.checkout-btn:disabled{background:#C4CAD4;box-shadow:none;cursor:not-allowed}
+.toast{position:fixed;bottom:128px;left:50%;transform:translateX(-50%) translateY(10px);background:#121318;color:#fff;padding:12px 20px;border-radius:10px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:1100;max-width:90%;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25);line-height:1.45}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.page-fade{position:fixed;inset:0;z-index:9999;background:#F7F8FC;opacity:0;pointer-events:none;transition:opacity .48s cubic-bezier(.4,0,.2,1)}
+.page-fade.show{opacity:1;pointer-events:auto}
+.noscript-note{margin:16px 0;padding:12px 16px;border-radius:10px;background:#FFF3F3;border:1px solid #F3C6C6;color:#8A2B2B;font-size:12px;font-weight:600}
+@media(max-width:480px){.container{box-shadow:none}.checkout-btn{padding:12px 20px;font-size:13px}}
+@media(max-width:360px){.step-label{font-size:9px;letter-spacing:.2px}.progress{padding:14px 16px 16px}.ticket-price{font-size:17px}.event-hero-bg{height:200px}.event-hero-title{font-size:18px}.early-bird-text{font-size:12px}.early-bird-max{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}.ticket-card{opacity:1;transform:none}.step.active .step-dot,.step.active .step-dot::after{animation:none}.early-bird-badge{opacity:1;transform:none}.early-bird-badge::before,.early-bird-dot{animation:none}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="app-header">
+    <div class="topbar">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Artatix" class="logo-img" decoding="async">
+        <span class="logo-text">Artatix</span>
+      </a>
+      <div class="lang">🇮🇩 ID</div>
+    </div>
+    <div class="progress">
+      <div class="progress-inner">
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" style="width:0%"></div></div>
+        <ol class="progress-steps" aria-label="Progress pemesanan">
+          <li class="step active" aria-current="step"><div class="step-dot"><span class="step-num">1</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Pilih Tiket</span></li>
+          <li class="step"><div class="step-dot"><span class="step-num">2</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Data Pembeli</span></li>
+          <li class="step"><div class="step-dot"><span class="step-num">3</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Pembayaran</span></li>
+          <li class="step"><div class="step-dot"><span class="step-num">4</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">E-Ticket</span></li>
+        </ol>
+      </div>
+    </div>
+  </header>
+  <section class="event-hero">
+    <div class="event-hero-bg">
+      <img src="banner.png" alt="Buzz Youth Fest" decoding="async" fetchpriority="high">
+      <div class="hero-id-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>ID</span></div>
+      <div class="event-hero-info">
+        <h1 class="event-hero-title">Buzz Youth Fest</h1>
+        <div class="event-hero-meta">
+          <span class="event-hero-date"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Sab, 16 Jan 2027</span>
+          <span class="event-hero-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Stadion Gelora Sriwijaya, Palembang</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main class="content">
+    <noscript><p class="noscript-note">Aktifkan JavaScript di browser Anda untuk memilih jumlah tiket dan melanjutkan pembelian.</p></noscript>
+    <div class="early-bird-badge">
+      <div class="early-bird-left">
+        <svg class="early-bird-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8z"/><path d="M13 6v12" stroke-dasharray="2 2"/></svg>
+        <div class="early-bird-text-wrap"><span class="early-bird-text">Presale Tiket</span><span class="early-bird-sub">Rabu, 2 September 2026 &bull; 13.00 WIB</span></div>
+      </div>
+      <div class="early-bird-right"><span class="early-bird-dot" aria-hidden="true"></span><span class="early-bird-max">Maksimal <strong>10</strong> Tiket</span></div>
+    </div>
+    <h2 class="section-title">Pilih Tiket</h2>
+    <p class="section-note">Harga belum termasuk pajak dan biaya admin. CAT 1 menggunakan numbered seat; kategori lain mengikuti free seating/standing area sesuai materi tiket.</p>
+    <div class="ticket-card" data-ticket="festival">
+      <div class="ticket-head"><span class="ticket-name">Festival</span><span class="ticket-tag">Standing Area</span></div>
+      <ul class="ticket-perks"><li>Standing Area Festival</li><li>Harga tiket Rp300.000</li><li>Harga belum termasuk pajak &amp; biaya admin</li></ul>
+      <div class="ticket-divider" aria-hidden="true"><span class="ticket-notch left"></span><span class="ticket-notch right"></span></div>
+      <div class="ticket-foot"><div class="ticket-price">Rp300.000 <span class="per">/pax</span></div><div class="qty-control"><button type="button" class="qty-btn qty-minus" aria-label="Kurangi tiket Festival">&minus;</button><span class="qty-val" aria-live="polite">0</span><button type="button" class="qty-btn qty-plus" aria-label="Tambah tiket Festival">+</button></div></div>
+    </div>
+    <div class="ticket-card" data-ticket="cat3">
+      <div class="ticket-head"><span class="ticket-name">CAT 3A &amp; 3B</span><span class="ticket-tag">Free Seating</span></div>
+      <ul class="ticket-perks"><li>Free Seating</li><li>Harga tiket Rp325.000</li><li>Area CAT 3A &amp; 3B</li></ul>
+      <div class="ticket-divider" aria-hidden="true"><span class="ticket-notch left"></span><span class="ticket-notch right"></span></div>
+      <div class="ticket-foot"><div class="ticket-price">Rp325.000 <span class="per">/pax</span></div><div class="qty-control"><button type="button" class="qty-btn qty-minus" aria-label="Kurangi tiket CAT 3A & 3B">&minus;</button><span class="qty-val" aria-live="polite">0</span><button type="button" class="qty-btn qty-plus" aria-label="Tambah tiket CAT 3A & 3B">+</button></div></div>
+    </div>
+    <div class="ticket-card" data-ticket="cat2">
+      <div class="ticket-head"><span class="ticket-name">CAT 2A &amp; 2B</span><span class="ticket-tag">Free Seating</span></div>
+      <ul class="ticket-perks"><li>Free Seating</li><li>Harga tiket Rp425.000</li><li>Area CAT 2A &amp; 2B</li></ul>
+      <div class="ticket-divider" aria-hidden="true"><span class="ticket-notch left"></span><span class="ticket-notch right"></span></div>
+      <div class="ticket-foot"><div class="ticket-price">Rp425.000 <span class="per">/pax</span></div><div class="qty-control"><button type="button" class="qty-btn qty-minus" aria-label="Kurangi tiket CAT 2A & 2B">&minus;</button><span class="qty-val" aria-live="polite">0</span><button type="button" class="qty-btn qty-plus" aria-label="Tambah tiket CAT 2A & 2B">+</button></div></div>
+    </div>
+    <div class="ticket-card vip-card" data-ticket="premium">
+      <div class="ticket-head"><span class="ticket-name">Premium</span><span class="ticket-tag gold">Standing Area</span></div>
+      <ul class="ticket-perks"><li>Standing Area Premium</li><li>Harga tiket Rp475.000</li><li>Area Premium sesuai denah acara</li></ul>
+      <div class="ticket-divider" aria-hidden="true"><span class="ticket-notch left"></span><span class="ticket-notch right"></span></div>
+      <div class="ticket-foot"><div class="ticket-price">Rp475.000 <span class="per">/pax</span></div><div class="qty-control"><button type="button" class="qty-btn qty-minus" aria-label="Kurangi tiket Premium">&minus;</button><span class="qty-val" aria-live="polite">0</span><button type="button" class="qty-btn qty-plus" aria-label="Tambah tiket Premium">+</button></div></div>
+    </div>
+    <div class="ticket-card vip-card" data-ticket="cat1">
+      <div class="ticket-head"><span class="ticket-name">CAT 1</span><span class="ticket-tag gold">Numbered Seat</span></div>
+      <ul class="ticket-perks"><li>Numbered Seat</li><li>Harga tiket Rp525.000</li><li>Area CAT 1 sesuai denah acara</li></ul>
+      <div class="ticket-divider" aria-hidden="true"><span class="ticket-notch left"></span><span class="ticket-notch right"></span></div>
+      <div class="ticket-foot"><div class="ticket-price">Rp525.000 <span class="per">/pax</span></div><div class="qty-control"><button type="button" class="qty-btn qty-minus" aria-label="Kurangi tiket CAT 1">&minus;</button><span class="qty-val" aria-live="polite">0</span><button type="button" class="qty-btn qty-plus" aria-label="Tambah tiket CAT 1">+</button></div></div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-brand"><img src="logo-saya.png" alt="Logo Promotor" class="footer-logo" decoding="async"><span class="footer-name">Artatix</span></div>
+      <div class="footer-contact"><a class="footer-contact-item" href="https://buzzouthfest.com" target="_blank" rel="noopener noreferrer">buzzouthfest.com</a></div>
+      <div class="footer-sep" role="separator"></div>
+      <p class="footer-copy">&copy; 2027 Buzz Youth Fest. Informasi berdasarkan materi acara.</p>
+    </footer>
+  </main>
+</div>
+<div class="sticky">
+  <div class="checkout-bar">
+    <div class="total-info"><div class="total-label">Total Pembayaran</div><div class="total-price" id="totalPrice" aria-live="polite">Rp0</div></div>
+    <button type="button" class="checkout-btn" id="checkoutBtn" disabled aria-label="Lanjutkan ke pengisian data pembeli">Lanjutkan</button>
+  </div>
+</div>
+<div class="page-fade" id="pageFade" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+var MAX=10,KEY='buzz_youth_fest_selection',DERIVED_KEYS=['checkout_items','jumlahTiket','totalPembayaran'],ids=['festival','cat3','cat2','premium','cat1'],
+data={festival:{l:'Festival',p:3e5},cat3:{l:'CAT 3A & 3B',p:325e3},cat2:{l:'CAT 2A & 2B',p:425e3},premium:{l:'Premium',p:475e3},cat1:{l:'CAT 1',p:525e3}},
+qty={festival:0,cat3:0,cat2:0,premium:0,cat1:0},
+cards=document.querySelectorAll('.ticket-card'),tpEl=document.getElementById('totalPrice'),
+coBtn=document.getElementById('checkoutBtn'),toastEl=document.getElementById('toast'),pageFade=document.getElementById('pageFade'),
+RM=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)').matches:false,TRANSITION_MS=480,
+tt=null,busy=false;
+function fmt(n){return'Rp'+n.toLocaleString('id-ID')}
+function totQ(){var s=0;for(var i=0;i<ids.length;i++)s+=qty[ids[i]];return s}
+function totP(){var s=0;for(var i=0;i<ids.length;i++)s+=qty[ids[i]]*data[ids[i]].p;return s}
+function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('show')},2500)}
+function bump(e){e.classList.remove('bump');void e.offsetWidth;e.classList.add('bump')}
+function ui(changed){
+  var tq=totQ();
+  cards.forEach(function(c){
+    var id=c.dataset.ticket,v=c.querySelector('.qty-val'),mn=c.querySelector('.qty-minus'),pl=c.querySelector('.qty-plus');
+    v.textContent=qty[id];c.classList.toggle('active',qty[id]>0);
+    mn.disabled=qty[id]===0;pl.disabled=qty[id]>=MAX||tq>=MAX;
+    if(id===changed)bump(v);
+  });
+  tpEl.textContent=fmt(totP());if(changed!==null)bump(tpEl);coBtn.disabled=totP()===0||busy;
+}
+function load(){
+  var s=null;try{s=JSON.parse(localStorage.getItem(KEY))}catch(e){return}
+  if(!s||!s.qty)return;var ld=0;
+  for(var i=0;i<ids.length;i++){var id=ids[i];if(typeof s.qty[id]==='number'){var v=Math.max(0,Math.min(s.qty[id],MAX));if(ld+v>MAX)v=MAX-ld;qty[id]=v;ld+=v}}
+}
+function resetBusy(){
+  busy=false;coBtn.textContent='Lanjutkan';
+  if(pageFade)pageFade.classList.remove('show');
+  ui(null);
+}
+window.addEventListener('pageshow',function(e){if(e.persisted)resetBusy()});
+cards.forEach(function(c){
+  var id=c.dataset.ticket;
+  c.querySelector('.qty-plus').addEventListener('click',function(){
+    if(busy)return;if(qty[id]>=MAX){toast('Maksimal '+MAX+' tiket per kategori');return}
+    if(totQ()>=MAX){toast('Maksimal '+MAX+' tiket per transaksi');return}
+    qty[id]++;ui(id);
+  });
+  c.querySelector('.qty-minus').addEventListener('click',function(){
+    if(busy)return;if(qty[id]>0){qty[id]--;ui(id)}
+  });
+});
+coBtn.addEventListener('click',function(){
+  if(busy)return;if(totQ()===0){toast('Silakan pilih minimal 1 tiket');return}
+  busy=true;coBtn.disabled=true;coBtn.textContent='Memuat...';
+  try{
+    var items=[];for(var i=0;i<ids.length;i++){var id=ids[i];if(qty[id]>0)items.push({nama:data[id].l,qty:qty[id],harga:data[id].p})}
+    localStorage.setItem(KEY,JSON.stringify({qty:qty}));
+    localStorage.setItem('checkout_items',JSON.stringify(items));
+    localStorage.setItem('jumlahTiket',String(totQ()));
+    localStorage.setItem('totalPembayaran',String(totP()));
+  }catch(e){
+    try{for(var k=0;k<DERIVED_KEYS.length;k++)localStorage.removeItem(DERIVED_KEYS[k])}catch(cleanupErr){}
+    toast('Gagal menyimpan pilihan tiket. Coba lagi.');resetBusy();return;
+  }
+  if(pageFade&&!RM)pageFade.classList.add('show');
+  setTimeout(function(){location.href='form.html'},RM?60:TRANSITION_MS);
+});
+load();ui(null);
+})();
+</script>
+</body>
+</html>
