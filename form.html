@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0C2C91">
+<meta name="description" content="Form pemesanan tiket Buzz Youth Fest - Palembang, 16 Januari 2027 di Stadion Gelora Sriwijaya.">
+<title>Buzz Youth Fest - Form Pemesanan</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;-webkit-tap-highlight-color:transparent}
+body{background:#F4F6FA;color:#1F2937;padding-bottom:90px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #3160F4;outline-offset:3px}
+.container{width:100%;max-width:480px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.05);position:relative}
+.app-header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-img{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.logo-text{font-size:20px;font-weight:900;letter-spacing:1px;background:linear-gradient(180deg,#FDF5A6 0%,#FCE28A 30%,#D4AF37 50%,#AA771C 60%,#FDF5A6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.lang{background:#F4F6FA;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;color:#4B5563}
+.progress{position:relative;padding:14px 28px 18px;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#0C2C91,#0A2475);overflow:hidden}
+.progress::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(253,245,166,.45),transparent)}
+.progress-inner{position:relative}
+.progress-track{position:absolute;top:14px;left:15px;right:15px;height:3px;background:rgba(255,255,255,.14);border-radius:999px;z-index:1}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#FDF5A6,#FCE28A 40%,#D4AF37 70%,#B8861A);border-radius:999px;box-shadow:0 0 10px rgba(212,175,55,.7);transition:width .7s cubic-bezier(.4,0,.2,1)}
+.progress-steps{position:relative;z-index:2;display:flex;justify-content:space-between;list-style:none}
+.step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+.step-dot{width:30px;height:30px;border-radius:50%;background:#0A2370;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:rgba(255,255,255,.55);transition:all .3s;position:relative}
+.step-num{display:block;line-height:1}
+.step-check{display:none;width:14px;height:14px;stroke:#5C4405;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.step.completed .step-dot{background:linear-gradient(180deg,#FDF5A6 0%,#FCE28A 30%,#D4AF37 50%,#AA771C 60%,#FDF5A6);border-color:#D4AF37;color:#5C4405;box-shadow:0 4px 14px rgba(212,175,55,.5),inset 0 1px 2px rgba(255,255,255,.45)}
+.step.completed .step-num{display:none}
+.step.completed .step-check{display:block}
+.step.active .step-dot{background:linear-gradient(180deg,#5B8AFF,#3160F4);border-color:#3160F4;color:#fff;box-shadow:0 0 0 4px rgba(49,96,244,.25),0 6px 20px rgba(49,96,244,.55);animation:stepPulse 2.2s ease-in-out infinite}
+.step.active .step-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(91,138,255,.5);animation:stepRing 2.2s ease-out infinite}
+@keyframes stepPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes stepRing{0%{transform:scale(.85);opacity:.85}100%{transform:scale(1.5);opacity:0}}
+.step-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;transition:color .3s}
+.step.active .step-label{color:#fff}
+.step.completed .step-label{color:rgba(253,245,166,.92)}
+.banner-wrap{padding:0 20px}
+.banner-img{width:100%;height:auto;border-radius:16px;display:block;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.content{padding:24px 20px}
+.page-title{font-size:20px;font-weight:800;margin-bottom:4px;color:#111827}
+.page-subtitle{font-size:13px;color:#6B7280;margin-bottom:24px}
+.card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:20px;margin-bottom:20px;box-shadow:0 4px 15px rgba(0,0,0,.03)}
+.card-title{font-size:16px;font-weight:800;margin-bottom:16px;color:#1F2937;display:flex;align-items:center;gap:10px}
+.card-title::before{content:'';width:4px;height:18px;background:#3561FF;border-radius:2px;display:block}
+.card-title .muted{font-size:11px;font-weight:600;color:#9CA3AF}
+.event-hero{text-align:center;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #E5E7EB}
+.event-hero h2{font-size:18px;font-weight:800;color:#1F2937;margin-bottom:4px}
+.event-hero p{color:#6B7280;font-size:13px;margin-bottom:12px}
+.event-info{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;color:#4B5563;font-size:12px;font-weight:600;background:#F4F6FA;padding:8px 12px;border-radius:10px}
+.event-info div{display:flex;align-items:center;gap:6px}
+.event-info svg{width:13px;height:13px;stroke:#4B5563;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.summary-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #E5E7EB;font-size:14px;color:#4B5563}
+.summary-row strong{color:#1F2937;font-weight:600}
+.summary-row.total{font-size:18px;font-weight:800;color:#1F2937;border-bottom:none;margin-top:8px;padding-top:12px;border-top:2px solid #E5E7EB}
+.summary-row.total span{color:#3561FF}
+.form-group{margin-bottom:16px}
+.form-group:last-child{margin-bottom:0}
+.form-group label{display:block;font-weight:600;font-size:13px;margin-bottom:8px;color:#1F2937}
+.input-icon-wrap{position:relative;display:flex;align-items:center}
+.input-icon{position:absolute;left:16px;width:15px;height:15px;stroke:#9CA3AF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+input,select,textarea{width:100%;padding:12px 16px 12px 40px;border-radius:10px;border:1px solid #E5E7EB;background:#F4F6FA;font-size:14px;font-family:'Poppins',sans-serif;transition:.2s;color:#1F2937}
+textarea{resize:vertical;min-height:80px;padding-left:16px}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239CA3AF' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#3561FF;background:#fff;box-shadow:0 0 0 3px rgba(53,97,255,.1)}
+input.error,select.error,textarea.error{border-color:#EF4444;background:#FEF2F2;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.check{display:flex;gap:12px;margin-top:12px;align-items:flex-start;background:#F4F6FA;padding:12px;border-radius:10px;border:1px solid #E5E7EB}
+.card-title + .check{margin-top:0}
+.check input{width:20px;height:20px;min-width:20px;accent-color:#3561FF;cursor:pointer;margin-top:2px;box-shadow:none;padding:0}
+.check label{font-size:12px;color:#4B5563;cursor:pointer;line-height:1.5}
+.holder-section-title{font-size:20px;font-weight:800;margin-bottom:4px;color:#111827}
+.holder-section-sub{font-size:13px;color:#6B7280;margin-bottom:16px}
+.holder-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:20px 20px 20px 24px;margin-bottom:16px;box-shadow:0 4px 15px rgba(0,0,0,.03);position:relative;overflow:hidden;animation:slideUp .35s ease}
+.holder-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(180deg,#3561FF,#2143D8)}
+.holder-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed #E5E7EB}
+.holder-badge{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#3561FF,#2143D8);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(53,97,255,.35);flex-shrink:0}
+.holder-info{flex:1}
+.holder-title{font-size:15px;font-weight:700;color:#1F2937;line-height:1.3}
+.holder-sub{font-size:11px;color:#9CA3AF;font-weight:500;margin-top:2px}
+.same-check{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:10px 12px;background:#F0F5FF;border-radius:10px;border:1px dashed #3561FF;cursor:pointer;font-size:12px;font-weight:600;color:#3561FF;transition:all .2s}
+.same-check:hover{background:#E3EDFF}
+.same-check input{width:16px;height:16px;min-width:16px;accent-color:#3561FF;cursor:pointer;box-shadow:none;padding:0;margin:0}
+.holder-card input:read-only{opacity:.55;cursor:not-allowed;background:#F4F6FA}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 20px;background:rgba(255,255,255,.98);border-top:1px solid #E5E7EB;box-shadow:0 -4px 20px rgba(0,0,0,.05);z-index:998}
+.flying-box{background:#fff;padding:6px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.06);max-width:440px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #E5E7EB}
+.btn-lanjut{width:100%;border:none;background:linear-gradient(135deg,#eaf7ff,#b8e1ff 30%,#57b8f9 66%,#0e97e6);color:#0a3a5f;font-size:14px;font-weight:700;letter-spacing:.5px;padding:14px 28px;border-radius:10px;cursor:pointer;box-shadow:0 8px 22px rgba(20,150,225,.42),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -3px 4px rgba(9,90,150,.32);transition:all .25s;white-space:nowrap;text-decoration:none;display:flex;justify-content:center;align-items:center;gap:8px;position:relative;overflow:hidden}
+.btn-lanjut::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:btnShine 3s ease-in-out infinite}
+@keyframes btnShine{0%{left:-60%}55%,100%{left:130%}}
+.btn-lanjut span,.btn-lanjut svg,.btn-lanjut .spinner{position:relative;z-index:1}
+.btn-lanjut svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.btn-lanjut:hover:not(:disabled){background:linear-gradient(135deg,#f0faff,#c4e5ff 30%,#63bdfb 66%,#1a9fe8);transform:translateY(-1px);box-shadow:0 14px 32px rgba(20,150,225,.6),inset 0 2px 2px #fff,inset 0 -3px 4px rgba(9,90,150,.38)}
+.btn-lanjut:active:not(:disabled){transform:scale(.98)}
+.btn-lanjut:disabled{opacity:.8;cursor:not-allowed;transform:none;box-shadow:none;background:linear-gradient(135deg,#d3e6f5,#c3dbee);color:#7d97b3}
+.btn-lanjut:disabled::before{animation:none}
+.btn-lanjut .spinner{width:18px;height:18px;border-width:3px;margin:0;border-top-color:#0e97e6;border-bottom-color:rgba(14,151,230,.25);border-left-color:rgba(14,151,230,.25);border-right-color:rgba(14,151,230,.25)}
+.site-footer{text-align:center;padding:36px 20px 8px;margin-top:20px;border-top:1px solid #E5E7EB}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+.footer-logo{width:30px;height:30px;border-radius:8px;object-fit:cover}
+.footer-name{font-size:20px;font-weight:900;letter-spacing:1.5px;background:linear-gradient(180deg,#3160F4,#0C2C91);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.footer-contact{display:flex;flex-direction:column;align-items:center;gap:8px}
+.footer-contact-item{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#1F2937;opacity:.75;text-decoration:none;transition:opacity .2s}
+.footer-contact-item:hover{opacity:1}
+.footer-contact-item svg{width:16px;height:16px;flex-shrink:0}
+.footer-sep{height:1px;background:#E5E7EB;margin:18px 0 14px}
+.footer-copy{font-size:11.5px;font-weight:500;opacity:.45}
+.loading-overlay{visibility:hidden;opacity:0;position:fixed;inset:0;background:rgba(255,255,255,.97);z-index:99999;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:opacity .3s}
+.loading-overlay.active{visibility:visible;opacity:1}
+.spinner-box{width:70px;height:70px;display:flex;justify-content:center;align-items:center;border-radius:50%;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:20px}
+.spinner{width:35px;height:35px;border:4px solid rgba(53,97,255,.1);border-top-color:#3561FF;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:16px;font-weight:700;color:#1F2937}
+.loading-sub{font-size:13px;color:#6B7280;margin-top:8px}
+.page-fade{position:fixed;inset:0;z-index:100001;background:#F4F6FA;opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.4,0,.2,1)}
+.page-fade.show{opacity:1;pointer-events:auto}
+.toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(10px);background:#121318;color:#fff;padding:12px 20px;border-radius:10px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:100000;max-width:90%;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25);line-height:1.45}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.noscript-note{margin:16px 0;padding:12px 16px;border-radius:10px;background:#FFF3F3;border:1px solid #F3C6C6;color:#8A2B2B;font-size:12px;font-weight:600}
+@media(max-width:480px){.container{box-shadow:none}input,select,textarea{font-size:16px}}
+@media(max-width:360px){.step-label{font-size:9px;letter-spacing:.2px}.progress{padding:14px 16px 16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}.step.active .step-dot,.step.active .step-dot::after{animation:none}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="app-header">
+    <div class="topbar">
+      <a href="index.html" class="logo"><img src="logo.png" alt="Artatix" class="logo-img" decoding="async"><span class="logo-text">Artatix</span></a>
+      <div class="lang">🇮🇩 ID</div>
+    </div>
+    <div class="progress">
+      <div class="progress-inner">
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" style="width:33.3%"></div></div>
+        <ol class="progress-steps" aria-label="Progress pemesanan">
+          <li class="step completed"><div class="step-dot"><span class="step-num">1</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Pilih Tiket</span></li>
+          <li class="step active" aria-current="step"><div class="step-dot"><span class="step-num">2</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Data Pembeli</span></li>
+          <li class="step"><div class="step-dot"><span class="step-num">3</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">Pembayaran</span></li>
+          <li class="step"><div class="step-dot"><span class="step-num">4</span><svg class="step-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><span class="step-label">E-Ticket</span></li>
+        </ol>
+      </div>
+    </div>
+  </header>
+  <div class="banner-wrap"><img class="banner-img" src="banner.png" alt="Buzz Youth Fest" decoding="async"></div>
+  <div class="content">
+    <noscript><p class="noscript-note">Aktifkan JavaScript di browser Anda untuk menggunakan form pemesanan ini.</p></noscript>
+    <div class="page-title">Form Pemesanan Tiket</div>
+    <div class="page-subtitle">Lengkapi data berikut sebelum melanjutkan ke pembayaran.</div>
+    <div class="card">
+      <div class="event-hero">
+        <h2>BUZZ YOUTH FEST</h2>
+        <p>Palembang 2027</p>
+        <div class="event-info">
+          <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 16 Jan 2027</div>
+          <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Palembang</div>
+        </div>
+      </div>
+      <div class="card-title">Ringkasan Pesanan</div>
+      <div class="summary-row"><span>Jenis Tiket</span><strong id="jenisTiket">-</strong></div>
+      <div id="detailTiket"></div>
+      <div class="summary-row"><span>Jumlah Tiket</span><strong id="jumlahTiket">0 Tiket</strong></div>
+      <div class="summary-row total"><span>Total Bayar</span><span id="totalBayar">Rp0</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Data Pemesan <span class="muted">(Pemegang Tiket #1)</span></div>
+      <div class="form-group"><label>Nama Lengkap (sesuai identitas)</label><div class="input-icon-wrap"><svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input id="nama" type="text" placeholder="Masukkan nama lengkap" autocomplete="name"></div></div>
+      <div class="form-group"><label>Jenis Identitas</label><div class="input-icon-wrap"><svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><select id="identitas"><option value="">Pilih Jenis Identitas</option><option>KTP</option><option>SIM</option><option>Paspor</option><option>Kartu Pelajar</option></select></div></div>
+      <div class="form-group"><label>Nomor Identitas</label><div class="input-icon-wrap"><svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg><input id="nomorId" type="text" placeholder="Masukkan nomor identitas" autocomplete="off"></div></div>
+      <div class="form-group"><label>E-mail Aktif</label><div class="input-icon-wrap"><svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input id="email" type="email" placeholder="contoh@email.com" autocomplete="email"></div></div>
+      <div class="form-group"><label>No. WhatsApp Aktif</label><div class="input-icon-wrap"><svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><input id="wa" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel"></div></div>
+      <div class="form-group"><label>Alamat / Tempat Tinggal</label><div class="input-icon-wrap"><textarea id="alamat" placeholder="Masukkan alamat lengkap" autocomplete="street-address"></textarea></div></div>
+    </div>
+    <div id="holderContainer"></div>
+    <div class="card">
+      <div class="card-title">Persetujuan</div>
+      <div class="check"><input type="checkbox" id="setuju1"><label for="setuju1">Data yang saya isi adalah benar dan dapat dipertanggungjawabkan.</label></div>
+      <div class="check"><input type="checkbox" id="setuju2"><label for="setuju2">Saya menyetujui syarat dan ketentuan acara serta kebijakan privasi.</label></div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-brand"><img src="logo-saya.png" alt="Buzz Youth Fest" class="footer-logo" decoding="async"><span class="footer-name">Artatix</span></div>
+      <div class="footer-contact">
+        <a class="footer-contact-item" href="https://wa.me/628217003017" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>+62 821-7003-017</a>
+        <a class="footer-contact-item" href="mailto:cs@buzzouthfest.com"><svg viewBox="0 0 24 24" fill="none" stroke="#0C2C91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>cs@buzzouthfest.com</a>
+      </div>
+      <div class="footer-sep" role="separator"></div>
+      <p class="footer-copy">&copy; 2027 Buzz Youth Fest. Informasi berdasarkan materi acara.</p>
+    </footer>
+  </div>
+</div>
+<div class="sticky">
+  <div class="flying-box">
+    <button type="button" class="btn-lanjut" id="lanjut"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>LANJUT KE PEMBAYARAN</span></button>
+  </div>
+</div>
+<div id="loading" class="loading-overlay">
+  <div class="spinner-box"><div class="spinner"></div></div>
+  <div class="loading-text">Memproses Pesanan...</div>
+  <div class="loading-sub">Mohon tunggu sebentar</div>
+</div>
+<div class="page-fade" id="pageFade" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+var items=[],total=0,jumlahTiket=0;
+try{var parsed=JSON.parse(localStorage.getItem('checkout_items')||'[]');if(Array.isArray(parsed))items=parsed}catch(e){items=[]}
+total=+localStorage.getItem('totalPembayaran')||0;
+jumlahTiket=+localStorage.getItem('jumlahTiket')||0;
+var detailWrap=$('detailTiket'),jenisEl=$('jenisTiket'),jumlahEl=$('jumlahTiket'),totalEl=$('totalBayar'),jenisTiketText='';
+function addRow(parent,left,right,small){
+  var row=document.createElement('div');row.className='summary-row';if(small)row.style.fontSize='13px';
+  var s=document.createElement('span');s.textContent=left;
+  var st=document.createElement('strong');st.textContent=right;
+  row.appendChild(s);row.appendChild(st);parent.appendChild(row);
+}
+if(items.length){
+  items.forEach(function(it){
+    addRow(detailWrap,it.nama+' ('+it.qty+'x)','Rp'+(it.qty*it.harga).toLocaleString('id-ID'),true);
+    jenisTiketText+=(jenisTiketText?', ':'')+it.nama+' ('+it.qty+')';
+  });
+}else{
+  var emptyRow=document.createElement('div');emptyRow.className='summary-row';emptyRow.style.justifyContent='center';
+  var emptySpan=document.createElement('span');emptySpan.style.cssText='color:#EF4444;font-size:13px';emptySpan.textContent='Tidak ada tiket dipilih';
+  emptyRow.appendChild(emptySpan);detailWrap.appendChild(emptyRow);
+  jenisTiketText='-';
+}
+jenisEl.textContent=jenisTiketText;
+jumlahEl.textContent=jumlahTiket+' Tiket';
+totalEl.textContent='Rp'+total.toLocaleString('id-ID');
+var namaEl=$('nama'),identitasEl=$('identitas'),nomorIdEl=$('nomorId'),emailEl=$('email'),waEl=$('wa'),alamatEl=$('alamat'),setuju1El=$('setuju1'),setuju2El=$('setuju2'),loadingEl=$('loading'),lanjutBtn=$('lanjut'),pageFade=$('pageFade'),toastEl=$('toast'),holderContainer=$('holderContainer');
+var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,phoneRe=/^(\+62|62|0)8\d{7,12}$/,
+RM=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)').matches:false,
+FADE_MS=450,OVERLAY_MS=600,tt=null,busy=false,
+btnHTML=lanjutBtn.innerHTML,
+spinnerHTML='<div class="spinner"></div>';
+function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('show')},2600)}
+function saveDraft(){try{localStorage.setItem('draft_nama',namaEl.value);localStorage.setItem('draft_identitas',identitasEl.value);localStorage.setItem('draft_nomorId',nomorIdEl.value);localStorage.setItem('draft_email',emailEl.value);localStorage.setItem('draft_wa',waEl.value);localStorage.setItem('draft_alamat',alamatEl.value)}catch(e){}}
+function restoreDraft(){try{namaEl.value=localStorage.getItem('draft_nama')||'';identitasEl.value=localStorage.getItem('draft_identitas')||'';nomorIdEl.value=localStorage.getItem('draft_nomorId')||'';emailEl.value=localStorage.getItem('draft_email')||'';waEl.value=localStorage.getItem('draft_wa')||'';alamatEl.value=localStorage.getItem('draft_alamat')||''}catch(e){}}
+restoreDraft();
+var draftT=null;
+function saveDraftSoon(){clearTimeout(draftT);draftT=setTimeout(saveDraft,300)}
+[namaEl,identitasEl,nomorIdEl,emailEl,waEl,alamatEl].forEach(function(el){el.addEventListener('input',saveDraftSoon);el.addEventListener('change',saveDraftSoon)});
+function toggleRO(card,locked){['h-nama','h-email','h-wa'].forEach(function(cls){card.querySelector('.'+cls).readOnly=locked})}
+function saveHoldersDraft(){
+  var d=[];
+  holderContainer.querySelectorAll('.holder-card').forEach(function(card){
+    var idx=+card.querySelector('.h-nama').dataset.holder;
+    d.push({index:idx,nama:card.querySelector('.h-nama').value,email:card.querySelector('.h-email').value,wa:card.querySelector('.h-wa').value,same:card.querySelector('.same-pemesan').checked});
+  });
+  try{localStorage.setItem('draft_holders',JSON.stringify(d))}catch(e){}
+}
+var holderDraftT=null;
+function saveHoldersDraftSoon(){clearTimeout(holderDraftT);holderDraftT=setTimeout(saveHoldersDraft,300)}
+function syncSame(){
+  holderContainer.querySelectorAll('.same-pemesan:checked').forEach(function(cb){
+    var card=cb.closest('.holder-card');
+    card.querySelector('.h-nama').value=namaEl.value;
+    card.querySelector('.h-email').value=emailEl.value;
+    card.querySelector('.h-wa').value=waEl.value;
+  });
+  saveHoldersDraft();
+}
+var iconUser='<svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+var iconMail='<svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>';
+var iconPhone='<svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+function generateHolders(count){
+  holderContainer.innerHTML='';
+  if(count<=1)return;
+  var t=document.createElement('div');
+  t.style.cssText='margin-bottom:16px';
+  t.innerHTML='<div class="holder-section-title">Data Pemegang Tiket</div><div class="holder-section-sub">Setiap tiket wajib memiliki data pemegang. Tiket #1 mengikuti data pemesan.</div>';
+  holderContainer.appendChild(t);
+  for(var i=2;i<=count;i++){
+    var c=document.createElement('div');
+    c.className='holder-card';
+    c.innerHTML='<div class="holder-head"><div class="holder-badge">'+i+'</div><div class="holder-info"><div class="holder-title">Data Pemegang Tiket #'+i+'</div><div class="holder-sub">Tiket ke-'+i+' dari '+count+'</div></div></div><label class="same-check"><input type="checkbox" class="same-pemesan" data-holder="'+i+'"> Sama dengan Data Pemesan</label><div class="form-group"><label>Nama Lengkap</label><div class="input-icon-wrap">'+iconUser+'<input class="h-nama" data-holder="'+i+'" type="text" placeholder="Nama lengkap pemegang tiket #'+i+'"></div></div><div class="form-group"><label>E-mail Aktif</label><div class="input-icon-wrap">'+iconMail+'<input class="h-email" data-holder="'+i+'" type="email" placeholder="email@contoh.com"></div></div><div class="form-group"><label>No. WhatsApp</label><div class="input-icon-wrap">'+iconPhone+'<input class="h-wa" data-holder="'+i+'" type="tel" placeholder="08xxxxxxxxxx"></div></div>';
+    holderContainer.appendChild(c);
+  }
+  var dh=[];
+  try{dh=JSON.parse(localStorage.getItem('draft_holders')||'[]');if(!Array.isArray(dh))dh=[]}catch(e){dh=[]}
+  dh.forEach(function(d){
+    var holderInput=holderContainer.querySelector('.h-nama[data-holder="'+d.index+'"]'),card=holderInput?holderInput.closest('.holder-card'):null;
+    if(card){
+      card.querySelector('.h-nama').value=d.nama||'';
+      card.querySelector('.h-email').value=d.email||'';
+      card.querySelector('.h-wa').value=d.wa||'';
+      if(d.same){card.querySelector('.same-pemesan').checked=true;toggleRO(card,true)}
+    }
+  });
+  holderContainer.querySelectorAll('input').forEach(function(inp){inp.addEventListener('input',saveHoldersDraftSoon);inp.addEventListener('change',saveHoldersDraftSoon)});
+  holderContainer.querySelectorAll('.same-pemesan').forEach(function(cb){
+    cb.addEventListener('change',function(){
+      var card=this.closest('.holder-card'),locked=this.checked;
+      toggleRO(card,locked);
+      if(locked){
+        card.querySelector('.h-nama').value=namaEl.value;
+        card.querySelector('.h-email').value=emailEl.value;
+        card.querySelector('.h-wa').value=waEl.value;
+      }
+      saveHoldersDraft();
+    });
+  });
+}
+[namaEl,emailEl,waEl].forEach(function(el){el.addEventListener('input',syncSame)});
+generateHolders(jumlahTiket);
+function resetBusy(){
+  busy=false;lanjutBtn.disabled=false;lanjutBtn.innerHTML=btnHTML;
+  loadingEl.classList.remove('active');
+  if(pageFade)pageFade.classList.remove('show');
+}
+window.addEventListener('pageshow',function(e){if(e.persisted)resetBusy()});
+lanjutBtn.addEventListener('click',async function(){
+  if(busy)return;
+  if(!items.length||!jumlahTiket){
+    toast('Anda belum memilih tiket. Mengalihkan ke halaman pemilihan tiket...');
+    setTimeout(function(){location.href='tiket.html'},1100);
+    return;
+  }
+  var wajib=[namaEl,identitasEl,nomorIdEl,emailEl,waEl,alamatEl],ok=true;
+  wajib.forEach(function(f){f.classList.remove('error')});
+  for(var i=0;i<wajib.length;i++){if(!wajib[i].value.trim()){wajib[i].classList.add('error');ok=false}}
+  if(emailEl.value.trim()&&!emailRe.test(emailEl.value.trim())){emailEl.classList.add('error');ok=false}
+  if(waEl.value.trim()&&!phoneRe.test(waEl.value.trim().replace(/[\s-]/g,''))){waEl.classList.add('error');ok=false}
+  if(!ok){
+    toast('Mohon lengkapi semua data wajib (kolom berwarna merah).');
+    var fe=document.querySelector('.error');if(fe)fe.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});
+    return;
+  }
+  var hOk=true,hData=[];
+  if(jumlahTiket>1){
+    holderContainer.querySelectorAll('.holder-card').forEach(function(card){
+      var idx=+card.querySelector('.h-nama').dataset.holder,hn=card.querySelector('.h-nama'),he=card.querySelector('.h-email'),hw=card.querySelector('.h-wa');
+      hn.classList.remove('error');he.classList.remove('error');hw.classList.remove('error');
+      if(!hn.value.trim()){hn.classList.add('error');hOk=false}
+      if(!he.value.trim()||!emailRe.test(he.value.trim())){he.classList.add('error');hOk=false}
+      if(!hw.value.trim()||!phoneRe.test(hw.value.trim().replace(/[\s-]/g,''))){hw.classList.add('error');hOk=false}
+      hData.push({tiket:idx,nama:hn.value.trim(),email:he.value.trim(),wa:hw.value.trim()});
+    });
+    if(!hOk){
+      toast('Mohon lengkapi data pemegang tiket (kolom berwarna merah).');
+      var fe2=holderContainer.querySelector('.error');if(fe2)fe2.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});
+      return;
+    }
+  }
+  if(!setuju1El.checked||!setuju2El.checked){toast('Harap centang seluruh kotak persetujuan.');return}
+  busy=true;lanjutBtn.disabled=true;
+  lanjutBtn.innerHTML=spinnerHTML+'<span>Memproses...</span>';
+  loadingEl.classList.add('active');
+  saveDraft();saveHoldersDraft();
+  var dataPemesan={nama:namaEl.value,wa:waEl.value,email:emailEl.value,identitas:identitasEl.value,nomorId:nomorIdEl.value,alamat:alamatEl.value,holders:hData,cart:{items:items.map(function(it){return{jenis:it.nama,qty:it.qty,harga:it.harga}}),totalQty:jumlahTiket,totalPrice:total}};
+  try{localStorage.setItem('data_pemesan',JSON.stringify(dataPemesan))}
+  catch(e){toast('Gagal menyimpan data pesanan. Coba lagi.');resetBusy();return}
+  var pemegangText=hData.length?hData.map(function(h){return'#'+h.tiket+': '+h.nama+' | '+h.email+' | '+h.wa}).join('\n'):'Hanya 1 tiket (sama dengan pemesan)';
+  try{
+    var controller=new AbortController(),timeoutId=setTimeout(function(){controller.abort()},5000);
+    await fetch('https://formspree.io/f/mojojdpl',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nama:namaEl.value,identitas:identitasEl.value,nomor_id:nomorIdEl.value,email:emailEl.value,whatsapp:waEl.value,alamat:alamatEl.value,pemegang_tiket:pemegangText,jenis_tiket:jenisTiketText,jumlah_tiket:jumlahTiket,total_bayar:total}),signal:controller.signal});
+    clearTimeout(timeoutId);
+  }catch(e){}
+  try{
+    sessionStorage.removeItem('byfQueueNumber');
+    sessionStorage.removeItem('byfPosition');
+    sessionStorage.removeItem('byfTotal');
+    sessionStorage.removeItem('byfWait');
+    sessionStorage.setItem('byfQueueNext','qris.html');
+  }catch(e){}
+  setTimeout(function(){
+    if(pageFade&&!RM)pageFade.classList.add('show');
+    setTimeout(function(){location.href='antrian.html'},RM?60:FADE_MS);
+  },OVERLAY_MS);
+});
+})();
+</script>
+</body>
+</html>
